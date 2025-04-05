@@ -2,6 +2,8 @@ package com.e_HealthCare.controller;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,44 +18,42 @@ import org.springframework.web.bind.annotation.RestController;
 import com.e_HealthCare.entity.Test;
 import com.e_HealthCare.service.TestService;
 
-	
-	@CrossOrigin(origins = "*")
-	@RestController
-	@RequestMapping("/test")
-	public class TestController {
+@CrossOrigin(origins = "*")
+@RestController
+@RequestMapping("/test")
+public class TestController {
 
-		@Autowired
-		private TestService service;
+	private static final Logger logger = LogManager.getLogger(TestController.class);
 
-		@PostMapping("/addTest")
-		public Test addTest(@RequestBody Test Test) {
-			return service.saveTest(Test);
-		}
+	@Autowired
+	private TestService service;
 
+	@PostMapping("/addTest")
+	public Test addTest(@RequestBody Test test) {
+		return service.saveTest(test);
+	}
 
-		@GetMapping("/Tests")
-		public List<Test> findAllTests() {
-			return service.getTests();
-		}
+	@GetMapping("/Tests")
+	public List<Test> findAllTests() {
+		logger.info("Fetching all tests");
+		return service.getTests();
+	}
 
-		@GetMapping("/TestById/{id}")
-		public Test findTestById(@PathVariable int id) {
-			return service.getTestById(id);
-		}
+	@GetMapping("/TestById/{id}")
+	public Test findTestById(@PathVariable int id) {
+		logger.info("Fetching test with ID: {}", id);
+		return service.getTestById(id);
+	}
 
+	@PutMapping("/update/{id}")
+	public Test updateTest(@RequestBody Test test) {
+		logger.info("Updating test: {}", test);
+		return service.updateTest(test);
+	}
 
-			@PutMapping("/update/{id}")
-			public Test updateTest(@RequestBody Test Test)
-			{
-				return service.updateTest(Test);
-			}
-		
-
-
-		@DeleteMapping("/delete/{id}")
-		public String deleteTest(@PathVariable int id) {
-			return service.deleteTest(id);
-		}
-
-
+	@DeleteMapping("/delete/{id}")
+	public String deleteTest(@PathVariable int id) {
+		logger.info("Deleting test with ID: {}", id);
+		return service.deleteTest(id);
+	}
 }

@@ -2,6 +2,8 @@ package com.e_HealthCare.controller;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,32 +24,38 @@ import com.e_HealthCare.service.RoomsService;
 @RequestMapping("/rooms")
 public class RoomsController {
 
-	@Autowired
-	private RoomsService service;
+	 private static final Logger logger = LogManager.getLogger(RoomsController.class);
 
-	@PostMapping("/addRoom")
-	public Rooms addRoom(@RequestBody Rooms room) {
-		return service.saveRoom(room);
-	}
+	    @Autowired
+	    private RoomsService service;
 
-	@GetMapping("/Rooms")
-	public List<Rooms> findAllRooms() {
-		return service.getRooms();
-	}
+	    @PostMapping("/addRoom")
+	    public Rooms addRoom(@RequestBody Rooms room) {
+	        logger.info("Adding a new room: {}", room);
+	        return service.saveRoom(room);
+	    }
 
-	@GetMapping("/RoomById/{id}")
-	public Rooms findRoomById(@PathVariable int id) {
-		return service.getRoomById(id);
-	}
+	    @GetMapping("/Rooms")
+	    public List<Rooms> findAllRooms() {
+	        logger.info("Fetching all rooms");
+	        return service.getRooms();
+	    }
 
-	@PutMapping("/updaterooms/{id}")
-	public Rooms updateRoom(@RequestBody Rooms room) {
-		return service.updateRoom(room);
-	}
+	    @GetMapping("/RoomById/{id}")
+	    public Rooms findRoomById(@PathVariable int id) {
+	        logger.info("Fetching room with ID: {}", id);
+	        return service.getRoomById(id);
+	    }
 
-	@DeleteMapping("/delete/{id}")
-	public String deleteRoom(@PathVariable int id) {
-		return service.deleteRoom(id);
-	}
+	    @PutMapping("/updaterooms/{id}")
+	    public Rooms updateRoom(@RequestBody Rooms room) {
+	        logger.info("Updating room: {}", room);
+	        return service.updateRoom(room);
+	    }
 
+	    @DeleteMapping("/delete/{id}")
+	    public String deleteRoom(@PathVariable int id) {
+	        logger.info("Deleting room with ID: {}", id);
+	        return service.deleteRoom(id);
+	    }
 }

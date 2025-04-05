@@ -1,5 +1,6 @@
 package com.e_HealthCare.entity;
 
+
 public class InputOutpatient {
 
 	private int inputId;

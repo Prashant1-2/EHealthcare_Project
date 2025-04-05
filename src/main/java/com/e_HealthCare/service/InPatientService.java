@@ -2,6 +2,8 @@ package com.e_HealthCare.service;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,32 +13,40 @@ import com.e_HealthCare.repository.InPatientRepository;
 @Service
 public class InPatientService {
 
-	@Autowired
-	private InPatientRepository repository;
+	  private static final Logger logger = LogManager.getLogger(InPatientService.class);
 
-	public InPatient saveInPatient(InPatient patient) {
-		return repository.save(patient);
-	}
+	    @Autowired
+	    private InPatientRepository repository;
 
-	public List<InPatient> savePatients(List<InPatient> patient) {
-		return repository.saveAll(patient);
-	}
+	    public InPatient saveInPatient(InPatient patient) {
+	        logger.info("Saving inpatient: {}", patient);
+	        return repository.save(patient);
+	    }
 
-	public List<InPatient> getPatients() {
-		return repository.findAll();
-	}
+	    public List<InPatient> savePatients(List<InPatient> patients) {
+	        logger.info("Saving multiple inpatients: {}", patients);
+	        return repository.saveAll(patients);
+	    }
 
-	public InPatient getPatientById(int id) {
-		return repository.findById(id).orElse(null);
-	}
+	    public List<InPatient> getPatients() {
+	        logger.info("Fetching all inpatients");
+	        return repository.findAll();
+	    }
 
-	public InPatient updatePatient(InPatient patient) {
-		return repository.save(patient);
-	}
+	    public InPatient getPatientById(int id) {
+	        logger.info("Fetching inpatient with ID: {}", id);
+	        return repository.findById(id).orElse(null);
+	    }
 
-	public String deletePatient(int id) {
-		repository.deleteById(id);
-		return "product removed !! " + id;
-	}
+	    public InPatient updatePatient(InPatient patient) {
+	        logger.info("Updating inpatient: {}", patient);
+	        return repository.save(patient);
+	    }
+
+	    public String deletePatient(int id) {
+	        logger.info("Deleting inpatient with ID: {}", id);
+	        repository.deleteById(id);
+	        return "Inpatient removed: " + id;
+	    }
 
 }
