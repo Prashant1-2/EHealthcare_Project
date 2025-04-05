@@ -1,0 +1,56 @@
+2025-04-05 10:13:02 [restartedMain] INFO  c.e.EHealthCareApplication - Starting EHealthCareApplication using Java 17.0.14 with PID 19776 (D:\Setup_Java\EHealthcare_Project\target\classes started by welcome in D:\Setup_Java\EHealthcare_Project)
+2025-04-05 10:13:02 [restartedMain] DEBUG c.e.EHealthCareApplication - Running with Spring Boot v3.4.4, Spring v6.2.5
+2025-04-05 10:13:02 [restartedMain] INFO  c.e.EHealthCareApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-05 10:13:02 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-05 10:13:02 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-05 10:13:03 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-05 10:13:03 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 48 ms. Found 9 JPA repository interfaces.
+2025-04-05 10:13:04 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-05 10:13:04 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-05 10:13:04 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-05 10:13:04 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-05 10:13:04 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1408 ms
+2025-04-05 10:13:04 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-05 10:13:04 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-04-05 10:13:04 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-05 10:13:05 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-05 10:13:05 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-05 10:13:05 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@55404deb
+2025-04-05 10:13:05 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-05 10:13:05 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-05 10:13:05 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-04-05 10:13:05 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-05 10:13:06 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-05 10:13:06 [restartedMain] DEBUG org.hibernate.SQL - create table appointmentdetail (aid integer not null, address varchar(255), aptdate varchar(255), disease varchar(255), docname varchar(255), gender varchar(255), mail varchar(255), pid integer, pname varchar(255), pphone varchar(255), ptype varchar(255), room varchar(255), username varchar(255), primary key (aid)) engine=InnoDB
+2025-04-05 10:13:06 [restartedMain] DEBUG org.hibernate.SQL - create table doctor_ehc (id integer not null, availfrom date, availto date, contact varchar(255), docdep varchar(255), docdes varchar(255), docexp integer, docname varchar(255), slot1 varchar(255), slot2 varchar(255), slot3 varchar(255), slot4 varchar(255), slot5 varchar(255), primary key (id)) engine=InnoDB
+2025-04-05 10:13:06 [restartedMain] DEBUG org.hibernate.SQL - create table doctor_seq (next_val bigint) engine=InnoDB
+2025-04-05 10:13:06 [restartedMain] DEBUG org.hibernate.SQL - insert into doctor_seq values ( 1 )
+2025-04-05 10:13:06 [restartedMain] DEBUG org.hibernate.SQL - create table e_healthcare_inpatient1 (ipid integer not null, floor integer, ipaddress varchar(255), ipdisease varchar(255), ipdoa varchar(255), ipgender varchar(255), ipmail varchar(255), ipname varchar(255), ipphone varchar(255), iproom integer, username varchar(255), primary key (ipid)) engine=InnoDB
+2025-04-05 10:13:06 [restartedMain] DEBUG org.hibernate.SQL - create table e_healthcare_inpatient1_seq (next_val bigint) engine=InnoDB
+2025-04-05 10:13:06 [restartedMain] DEBUG org.hibernate.SQL - insert into e_healthcare_inpatient1_seq values ( 1 )
+2025-04-05 10:13:06 [restartedMain] DEBUG org.hibernate.SQL - create table ehc_outpatient (out_p_id integer not null auto_increment, d_o_a varchar(255), dis_name varchar(255), dob varchar(255), doc_name varchar(255), email varchar(255), p_name varchar(255), ph_number varchar(255), t_slot varchar(255), username varchar(255), primary key (out_p_id)) engine=InnoDB
+2025-04-05 10:13:06 [restartedMain] DEBUG org.hibernate.SQL - create table pdetails (id integer not null, address varchar(255), dob varchar(255), email varchar(255), fathername varchar(255), gender varchar(255), mothername varchar(255), name varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2025-04-05 10:13:06 [restartedMain] DEBUG org.hibernate.SQL - create table pdetails_seq (next_val bigint) engine=InnoDB
+2025-04-05 10:13:06 [restartedMain] DEBUG org.hibernate.SQL - insert into pdetails_seq values ( 1 )
+2025-04-05 10:13:06 [restartedMain] DEBUG org.hibernate.SQL - create table rooms_ehc (rid integer not null, floor integer not null, rent integer not null, status varchar(255), primary key (rid)) engine=InnoDB
+2025-04-05 10:13:06 [restartedMain] DEBUG org.hibernate.SQL - create table test_ehc (tid integer not null, amount integer not null, descr varchar(255), tname varchar(255), primary key (tid)) engine=InnoDB
+2025-04-05 10:13:06 [restartedMain] DEBUG org.hibernate.SQL - create table test_ehc_seq (next_val bigint) engine=InnoDB
+2025-04-05 10:13:06 [restartedMain] DEBUG org.hibernate.SQL - insert into test_ehc_seq values ( 1 )
+2025-04-05 10:13:06 [restartedMain] DEBUG org.hibernate.SQL - create table userregistration (username varchar(255) not null, isadmin varchar(255), password varchar(255) not null, id integer not null, email varchar(255), name varchar(255), primary key (id)) engine=InnoDB
+2025-04-05 10:13:06 [restartedMain] DEBUG org.hibernate.SQL - create table userregistration_seq (next_val bigint) engine=InnoDB
+2025-04-05 10:13:06 [restartedMain] DEBUG org.hibernate.SQL - insert into userregistration_seq values ( 1 )
+2025-04-05 10:13:06 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-05 10:13:06 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-04-05 10:13:07 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-05 10:13:07 [restartedMain] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-04-05 10:13:07 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-04-05 10:13:07 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2025-04-05 10:13:08 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-04-05 10:13:08 [restartedMain] INFO  c.e.EHealthCareApplication - Started EHealthCareApplication in 5.543 seconds (process running for 5.864)
