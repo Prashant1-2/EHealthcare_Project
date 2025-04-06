@@ -17,7 +17,6 @@ import com.e_HealthCare.service.UserService;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-
 public class UserController {
 	private static final Logger logger = LogManager.getLogger(UserController.class);
     @Autowired
